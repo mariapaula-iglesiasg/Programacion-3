@@ -1,0 +1,74 @@
+
+package com.mycompany.taller2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Maria Paula
+ */
+public class Taller2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner capt = new Scanner(System.in);
+        System.out.print("Ingrese el tamaño de la matriz nxn\t: ");
+        int n = capt.nextInt();
+        int dato=1;
+        int matriz[][]=new int[n][n];
+        for (int i=0;i< matriz.length;i++) {
+            for (int j = 0; j<matriz[1].length; j++) {
+                matriz[i][j] = dato;
+                dato++;
+            }
+        }
+        for (int i=0;i< matriz.length;i++) {
+            for (int j = 0; j<matriz[1].length; j++) {
+                System.out.print("\t" + matriz[i][j]);
+            }
+            System.out.println("");
+        }
+        int diagonalPrincipal[]=new int [matriz.length]; 
+        int diagonalSecundaria[]=new int [matriz.length];
+        for (int i=0;i< matriz.length;i++) {
+            for (int j = 0; j<matriz[1].length; j++) {
+                if(i==j){
+                    diagonalPrincipal[i]=matriz[i][j];
+                }
+                if((i+j)==matriz.length-1){
+                    diagonalSecundaria[1]=matriz[i][j];
+                }
+            }
+        }
+        int suma=0, valorsuma;
+        System.out.println("\nEsta es la diagonal principal:");
+        for(int elemento:diagonalPrincipal){
+            System.out.print("\t"+elemento);
+            suma=suma+elemento;
+        }
+        System.out.print(" = " +suma);
+        System.out.print("El valor absoluto de la suma de la diagonal principal es: " +valorsuma);
+        System.out.print("");
+        
+        int suma2=0,valorsuma2;
+        System.out.println("\nEsta es la diagonal secundaria:");
+        for(int elemento:diagonalSecundaria){
+            System.out.print("\t"+elemento);
+            suma2=suma2+elemento;
+        }
+        System.out.print(" = " +suma);
+        System.out.print("El valor absoluto de la suma de la diagonal secundaria es: " +valorsuma2); 
+        System.out.println("");
+        
+        int resta;
+        resta=valorsuma-valorsuma2;
+        System.out.print("La diferencia entre los valores absolutos de las sumas de las 2 diagonales es: ");
+        System.out.print("\n" +valorsuma " - " +valorsuma2 " = " +resta);
+        int valordiferencia;
+        System.out.print("El valor absoluto de esta diferencia es: " +valordiferencia);
+        
+        
+    }
+}
